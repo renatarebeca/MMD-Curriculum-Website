@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Introduction</title>
+
+        <!-- Bootstrap -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" /> 
+        <link rel="stylesheet" type="text/css" href="css/pimp_style.css" />
+        <link rel="stylesheet" type="text/css" href="css/queries.css" />
+        <link rel="stylesheet" type="text/css" href="css/animations.css">
+
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+        <script type="text/javascript" language="JavaScript">
+            $(document).ready(function(){
+
+                var   burger = $('#nav-burger'),
+                    side_menu = $('.side_menu'),
+                    menu_category = $('.link'),
+                    menu_list = $('.submenu li'),
+                    menu_page = $('.side_menu .link')
+
+
+                /* ---Menu Drop Down--- */
+
+                $(function() {
+                    var side_menu = function(el, multiple) {
+                        this.el = el || {};
+                        this.multiple = multiple || false;
+
+                        // Variables privadas
+                        var links = this.el.find('.link');
+                        // Evento
+                        links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+
+                    }
+
+                    side_menu.prototype.dropdown = function(e) {
+                        var $el = e.data.el;
+                        $this = $(this),
+                            $next = $this.next();
+
+                        $next.slideToggle();
+                        $this.parent().toggleClass('open');
+
+                        if (!e.data.multiple) {
+                            $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                        };
+                    }  
+
+                    var side_menu = new side_menu($('#side_menu'), false);
+                });
+
+
+
+                /* Burger Menu Icon */ 
+
+                burger.click(function(){
+                    $(this).toggleClass('open');
+                    side_menu.toggleClass('side_menu-active');
+                });
+
+                menu_list.click(function(){
+                    burger.toggleClass('open');
+                    setTimeout(function(){
+                        side_menu.toggleClass('side_menu-active');
+                    }, 1000);
+                });
+            });
+        </script>
+    </head>
+    <body>
+
+        <a href="index.html" class="logo-body"><svg width="150px" version="1.0" id="logo-top" xmlns="http://www.w3.org/2000/svg"
+                                                    width="200.000000pt" height="122.000000pt" viewBox="0 0 600.000000 222.000000"
+                                                    preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0.000000,222.000000) scale(0.100000,-0.100000)"
+               fill="#000000" stroke="none">
+                <path d="M42 1473 l3 -748 115 -2 115 -3 62 58 c34 32 142 135 240 229 197
+                         188 280 263 291 263 4 0 21 -13 38 -28 17 -15 53 -45 80 -67 26 -22 69 -57 94
+                         -79 48 -41 50 -42 155 -130 39 -32 81 -68 95 -80 14 -12 64 -54 111 -93 l86
+                         -71 181 -3 c170 -3 213 2 184 20 -14 9 -116 92 -222 181 -43 36 -124 103 -180
+                         150 -56 47 -137 114 -180 150 -42 36 -113 94 -157 130 -114 92 -114 92 -55
+                         148 27 26 140 135 252 242 113 107 228 218 256 245 29 28 91 87 138 133 47 46
+                         86 87 86 93 0 5 -75 9 -180 9 -137 0 -180 -3 -180 -12 0 -7 -41 -53 -92 -101
+                         -51 -49 -136 -130 -188 -180 -52 -51 -174 -167 -270 -257 -96 -90 -193 -183
+                         -216 -205 -206 -202 -409 -391 -425 -393 -19 -3 -19 11 -19 572 l0 576 -110 0
+                         -110 0 2 -747z"/>
+                <path d="M2490 2207 c0 -8 -31 -24 -72 -37 -283 -92 -393 -241 -421 -573 -23
+                         -285 25 -550 121 -657 89 -99 163 -147 275 -179 134 -39 212 -42 802 -39 l570
+                         3 3 104 c2 67 -1 108 -9 117 -10 12 -105 14 -576 14 -574 0 -657 4 -747 39
+                         -95 36 -171 127 -183 222 -5 33 -3 39 13 39 11 0 251 0 534 0 630 0 731 10
+                         849 85 118 74 173 194 174 380 1 166 -32 266 -117 350 -48 48 -68 59 -198 107
+                         -16 6 -28 17 -28 24 0 12 -81 14 -495 14 -405 0 -495 -2 -495 -13z m931 -253
+                         c124 -28 170 -108 155 -264 -9 -84 -40 -131 -104 -156 -44 -18 -85 -19 -642
+                         -19 l-595 0 3 80 c7 209 99 319 302 360 104 20 789 20 881 -1z"/>
+                <path d="M4242 2093 l3 -128 590 -6 c375 -3 603 -9 625 -16 146 -45 205 -91
+                         245 -191 34 -83 85 -76 -590 -83 -651 -6 -658 -7 -772 -64 -142 -72 -205 -198
+                         -206 -410 0 -216 69 -348 220 -417 126 -57 154 -58 899 -56 l679 3 7 490 c3
+                         270 7 503 7 519 4 78 -73 231 -152 302 -57 53 -145 102 -217 123 -79 23 -100
+                         33 -100 47 0 12 -100 14 -620 14 l-621 0 3 -127z m1477 -677 c8 -9 11 -79 9
+                         -232 l-3 -219 -550 -3 c-364 -2 -572 1 -614 8 -80 14 -131 40 -153 78 -24 40
+                         -33 154 -19 222 19 87 58 122 162 145 94 20 1151 21 1168 1z"/>
+            </g>
+            </svg></a>
+
+        <div id="nav-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+        <ul id="side_menu" class="side_menu">
+            <li class="">
+                <div class="link home"><a href="index.html">Home</a></div>
+            </li>
+            <li class="default open">
+                <div class="link introduction"><a href="#introduction">Introduction</a> <img class="down-arrow" src="img/menu-arrow.png" alt="down-arrow"></div>
+                <ul class="submenu">
+                    <li data-menuanchor="design"><a class="page-scroll" href="#main">Main</a></li>
+                    <li data-menuanchor="core-areas"><a class="page-scroll" href="#core-areas">Core areas</a></li>
+                    <li data-menuanchor="design"><a class="page-scroll" href="#design">Design and Visualisation</a></li>
+                    <li data-menuanchor="interaction"><a class="page-scroll" href="#interaction">Interaction Develpment</a></li>
+                    <li data-menuanchor="communication"><a class="page-scroll" href="#communication">Communication and Presentation</a></li>
+                    <li data-menuanchor="business"><a class="page-scroll" href="#business">Business</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <div class="link internship"><a href="internship.html">Internship</a> <img class="down-arrow" src="img/menu-arrow.png" alt="down-arrow"></div>
+                <ul class="submenu">
+                    <li data-menuanchor="internship_details"><a class="page-scroll" href="internship.html#main">Main</a></li>
+                    <li data-menuanchor="internship_table"><a class="page-scroll" href="internship.html#table">Table</a></li>
+                    <li data-menuanchor="rules_on_completition"><a class="page-scroll" href="internship.html#rules_on_completion"> Rules on completion</a></li>
+                    <li data-menuanchor="how_to_apply"><a class="page-scroll" href="internship.html#how_to_apply">How to get started</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <div class="link exams"><a href="exams.html">Exams</a> <img class="down-arrow" src="img/menu-arrow.png" alt="down-arrow"></div>
+                <ul class="submenu">
+                    <li data-menuanchor="exam_details"><a href="exams.html#exam_details">Intro</a></li>
+                    <li data-menuanchor="first_sem"><a href="exams.html#first_exam">First year exam</a></li>
+                    <li data-menuanchor="second_sem"><a href="exams.html#second_exam">Third semester exam</a></li>
+                    <li data-menuanchor="third_sem"><a href="exams.html#third_exam">Fourth semester exam</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <div class="link contact"><a href="contact.html">Contact</a></div>
+            </li>
+        </ul>    
+
+        <!--- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span> -->
+
+
+        <div class="parallax-window" data-parallax="scroll" data-image-src='img/main.jpg' class="img-responsive" id="p1">
+            <div class="top" id="introduction"> 
+                <h1 class="head_title" class="type-it">Introduction</h1>    
+            </div> 
+            <div class="contentDiv">
+                <a class="page-scroll" href="#main"><img class="arrow" src="img/down_arrow.png" /></a>
+            </div>
+        </div>
+
+
+        <div class="container col-md-12 odd" id="main">
+            <br>    
+            <div class = "col-xs-12 col-sm-10 col-md-5 col-lg-5 col-sm-push-1 col-md-push-1 col-sm-push-1 animatedParent animateOnce">
+                <h1 class="animated fadeInUp"> Main </h1>
+                <br>
+                <p class="animated fadeInUp"> A multimedia designer is an artist of integrating multiple forms of media. Therefore he has an important role in creating websites, video games, information kiosks and many other interactive applications. Careers in multimedia design can be found in a growing number of industries, from small agencies to large companies all over the world.
+                    <br> KEA’s multimedia design programme is based on 4 core areas: <b> Design and visualization</b>, <b> Interaction development</b>, <b> Communication</b> and <b> presentation and Business</b>.
+                    <br> You are provided with theory and assignments on designing web portals, mobile applications, digital communication and games in addition to digital video, animation and frontend programming.
+                <br> During your studies you get familiar with theories and methods on the field of multimedia design, interaction and communication. You participate in teams to fulfill multimedia tasks from a concept, through visualization and coding, until the end product, where you present your production to stakeholders. 
+                <br>With the elective subject, you get the possibility to specialize on one or two areas, while on the internship you get to practice all your acquired competencies in cooperation with real companies or organizations.</p>
+
+            </div>
+        </div>
+
+        <div class="container col-md-12 even animatedParent animateOnce" id="main">
+            <br>
+            <div id="core-areas" class = "col-xs-12 col-sm-10 col-md-5 col-lg-5 col-sm-push-1 col-md-push-6 col-lg-push-6 ">
+                <h1 class="animated fadeInUp">Core areas</h1>
+                <h3 class="animated fadeInUp"> Design and visualization</h3>
+                <p class="animated fadeInUp">This area teaches the student how to apply multimedia design and concept development principles. It also includes graphic design, interactive user interface design, aesthetics, video/audio and animation. In addition, the student learns to integrate different types of digital media on the digital platforms.</p>
+
+                <h3 class="animated fadeInUp" >Interaction development</h3>
+                <p class="animated fadeInUp"> This area teaches the student to program dynamic multimedia applications. The student is also to obtain a basic understanding of system development. Furthermore, the student is to acquire the skills needed to structure and implement complex dynamic multimedia applications with the integration of databases.  </p>
+
+                <h3 class="animated fadeInUp"> Communication and presentation</h3>
+                <p class="animated fadeInUp">This area teaches the student the skills how to handle communication in multimedia tasks. It also includes handling communication channels and opportunities in complex organisations and networks, both locally and globally.  </p>
+
+                <h3 class="animated fadeInUp">  The Business</h3>
+                <p class="animated fadeInUp">This area gives the students the tools to use organisational aspects in multimedia development, and the means to plan, manage and carry out development projects. </p>
+            </div>
+            <br>
+        </div>
+
+
+
+        <div class="container col-md-12 odd">
+            <br>
+            <div id="design" class="table-responsive col-xs-6 col-sm-5 col-md-5 col-lg-5 col-sm-push-1 col-md-push-1 col-lg-push-1 animatedParent animateOnce" >
+                <table class="table animated fadeInLeft">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th> Design and visualisation (25 ECTS)</th>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-md-6 col-sm-6"> 
+                                <div class="kn1"> Knowledge </div>
+                                <ul> 
+                                    <li> video and audio production tools </li>
+                                    <li> design documentation </li>
+                                    <li> the history of design and aesthetics on the multimedia field</li>
+                                    <li> the connection between application and design </li>
+                                    <li> animation techniques </li>
+                                    <li> narrative and production techniques</li>
+                                </ul>
+
+                                <div class="sk1"> Skills</div>
+                                <ul> 
+                                    <li> ideation and concept development </li>
+                                    <li> design user interfaces for digital platforms</li>
+                                    <li> key user-oriented design methods </li>
+                                    <li> prepare graphic material for further production</li>
+                                    <li> present design-related problems and possible solutions</li>
+                                    <li> documenting interactive multimedia productions</li>
+                                    <li> the production and post-processing of video and audio</li>
+                                    <li> presentation to stakeholders</li>
+                                </ul>
+                                <div class="comp1"> Competencies </div>
+                                <ul> 
+                                    <li> connection between message and design </li>
+                                    <li> connection between identity and design</li>
+                                    <li> design and development of interactive user interfaces </li>
+                                    <li> the expression of digital media on different digital platforms </li>
+                                    <li> participate in teams both internally and externally </li>
+                                    <li> obtain new skills and competencies related to the profession </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+            <div id="interaction" class="table-responsive col-xs-6 col-sm-5 col-md-5 col-lg-5 col-sm-push-1 col-md-push-1 col-lg-push-1 animatedParent animateOnce" >
+                <table class="table animated fadeInLeft">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th> Interaction development (25 ECTS)</th>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>  <div class="kn2"> Knowledge</div>
+                                <ul> 
+                                    <li> the structure and use of the Internet </li>
+                                    <li> object-oriented programming in relation to multimedia practice</li>
+                                    <li> development environments applied in practice </li>
+                                    <li> elements of Content Management Systems (CMS)</li>
+                                    <li> key theory and method in system development</li>
+                                    <li> interfaces for exchanging data and important security aspects</li>
+                                </ul>
+                                <div class="sk2"> Skills</div>
+                                <ul> 
+                                    <li> search engine optimisation (SEO)</li>
+                                    <li> prepare and present documentation in accordance with practice</li>
+                                    <li> current formatting languages </li>
+                                    <li> program client and server-based multimedia solutions</li>
+                                    <li> modelling, structuring and implementing functionality  </li>
+                                    <li> use a database manipulation language</li>
+                                    <li> modelling data and implementing databases </li>
+                                    <li> assuring quality through testing and troubleshooting</li>
+                                </ul>
+                                <div class="comp2"> Competencies </div>
+                                <ul>
+                                    <li>modelling, structuring and formatting the information</li>
+                                    <li> modelling, structuring and programming of functionality</li>
+                                    <li> integration of different media types in multimedia applications</li>
+                                    <li> handle data persistence for dynamic multimedia applications</li>
+                                    <li> participate in teams both internally and externally</li>
+                                    <li> obtain new skills and competencies related to the profession</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+        </div>
+
+
+        <div class="container col-md-12 even">
+            <br>    
+            <div id="communication" class="table-responsive col-xs-6 col-sm-5 col-md-5 col-lg-5 col-sm-push-1 col-md-push-1 col-lg-push-1 animatedParent animateOnce">
+                <table class="table animated fadeInLeft">
+                    <thead class="thead-default">
+                        <tr>
+                            <th> Communication and presentation (20 ECTS)</th>
+
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr>
+                            <td class="col-md-6 col-sm-6"> <div class="kn3"> Knowledge </div>
+                                <ul> 
+                                    <li> communication theory and method </li>
+                                    <li> marketing theory and method</li>
+                                    <li> communicative tools and techniques and genres</li>
+                                    <li> media sociology (the use of digital media by different social groups)</li>
+                                </ul> 
+                                <div class="sk3">Skills</div>
+                                <ul>
+                                    <li> target group and situation description and analysis </li>
+                                    <li> communication towards selected target groups</li>
+                                    <li> information architecture</li>
+                                    <li> plan and conduct user tests, develop project reports</li>
+                                    <li> stakeholder presentations</li>
+                                    <li> apply communication elements in media productions</li>
+                                    <li> apply media sociology in communication</li>
+                                </ul>
+                                <div class="comp3"> Competencies</div>
+                                <ul>
+                                    <li> communication and marketing across platforms</li>
+                                    <li> interactive communication in multimedia products</li>
+                                    <li> participate in teams both internally and externally</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="business" class="table-responsive col-xs-6 col-sm-5 col-md-5 col-lg-5 col-sm-push-1 col-md-push-1 col-lg-push-1 animatedParent animateOnce">
+                <table class="table animated fadeInLeft">
+                    <thead class="thead-default">
+                        <tr>
+                            <th> The Business (10 ECTS)</th>
+
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr>
+                            <td> <div class="kn4"> Knowledge </div>
+                                <ul> 
+                                    <li> commercial law (including copyright, data protection law and contract law)</li>
+                                    <li> control, communication and decision-making processes</li>
+                                    <li> financial planning, implementing and controling multimedia productions</li>
+                                    <li> key innovation and entrepreneurship topics</li>
+                                </ul>
+                                <div class="sk4"> Skills</div>
+                                <ul> 
+                                    <li> project management</li>
+                                    <li> strategy development</li>
+                                    <li> corporate identity creation</li>
+                                    <li> digital marketing </li>
+                                    <li> budgeting</li>
+                                    <li> assess the vision, mission and values as well as the strategy and culture of organisations in relation to multimedia productions</li>
+                                </ul>
+                                <div class="comp4"> Competencies </div>
+                                <ul>
+                                    <li> planning, control and quality assurance of development projects</li>
+                                    <li> participate in teams both internally and externally</li>
+                                    <li> obtain new skills and competencies related to the profession</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--Back To Top Button-->
+        <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+        <!--End Button--> 
+
+        <div class="row footer">
+            <div class="footer_wrap">
+                <div class="col-sm-4 about_footer">
+                    <h3> Address </h3>
+                    <p> Lygten 16,</p>
+                    <p> 2400 Copenhagen NV,</p>
+                    <p> Denmark</p>
+                </div>
+                <div class="col-sm-4 logo_footer"> 
+                    <a href="index.html"><img id="myImgfooter" src="img/logo_footer.png" alt="Logo"></a>
+                </div>
+                <div class="col-sm-4 about_footer">
+                    <h3>Contact us </h3>
+                    <p> For further information</p>
+                    <p> please telephone us at </p>
+                    <p> +45 4646 0400 </p>
+                </div>
+            </div>
+        </div>
+        <script src="js/css3-animate-it.js"></script>
+        <script src="js/scrolling-nav.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/typeit.js"></script>
+
+        <script src="js/parallax.min.js"></script>
+        <script src="js/pimp_elem.js"></script>
+    </body>
+</html>
+

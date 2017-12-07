@@ -1,0 +1,2 @@
+# MMD-Curriculum-Website
+This website was created as part of a school project why learning to use Bootstrap and Plugins. The site represents the KEA Multimedia Design and Communication Curriculum info. 
